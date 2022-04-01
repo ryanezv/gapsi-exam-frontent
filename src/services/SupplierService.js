@@ -1,4 +1,4 @@
-import http from "@/http-common";
+import http from "@/services/HttpAxios";
 
 class SupplierService{
     getAll(){

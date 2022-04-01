@@ -52,7 +52,8 @@
 </template>
 
 <script>
-  import SupplierService from "@/services/SupplierService";
+  import { RepositoryFactory } from '@/services/RepositoryFactory'
+  const SupplierService = RepositoryFactory.get('suppliers')
 
   export default {
     name: "add",

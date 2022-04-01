@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import AppService from '../services/AppService';
+import { RepositoryFactory } from '@/services/RepositoryFactory'
+const AppService = RepositoryFactory.get('app')
 
 export default {
   data() {

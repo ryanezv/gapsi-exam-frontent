@@ -33,8 +33,9 @@
 </template>
 
 <script>
+import { RepositoryFactory } from '@/services/RepositoryFactory'
+const SupplierService = RepositoryFactory.get('suppliers')
 
-import SupplierService from '@/services/SupplierService';
 export default {
   name: 'Suppliers',
   data(){
@@ -49,7 +50,7 @@ export default {
             this.suppliers = response.data._embedded.supplier;
           }).catch(e => {
             console.log(e);
-          });;
+          });
     },
     remove(id){
       console.log("Delete supplier: "+ id);

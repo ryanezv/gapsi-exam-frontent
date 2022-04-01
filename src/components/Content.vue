@@ -16,7 +16,8 @@
 
 <script>
 
-import UserService from '../services/UserServices';
+import { RepositoryFactory } from '@/services/RepositoryFactory'
+const UserService = RepositoryFactory.get('users')
 
 export default {
   data() {
