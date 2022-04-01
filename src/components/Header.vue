@@ -3,7 +3,7 @@
     <a href="#" @click="reload">
       <img src="@/assets/header-gapsi.png" alt="Grupo de asesores Gapsi"/>
     </a>
-    <h1>e-Commerce Gapsi</h1>
+    <h1 class="primary">e-Commerce Gapsi</h1>
   </header>
 </template>
 

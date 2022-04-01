@@ -1,14 +1,11 @@
 <template>
-  <button class="btn btn-link">
-    <router-link to="/suppliers" class="nav-link">Regresar</router-link>
-  </button>
-  <button class="btn btn-link">
-    <router-link to="/" class="nav-link">Home</router-link>
-  </button>
-  <div class="submit-form">
-    <div v-if="!submitted">
-      <div class="form-group">
-        <label for="title">Nombre</label>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <router-link to="/suppliers" class="btn btn-link">Regresar</router-link>
+      <router-link to="/" class="btn btn-link">Inicio</router-link>
+      <div v-if="!submitted" class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
         <input
             type="text"
             class="form-control"
@@ -16,57 +13,41 @@
             required
             v-model="supplier.name"
             name="name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="description">Descripcion</label>
+            placeholder="Nombre del proveedor">
+
+        <label for="name" class="form-label">Razón social</label>
         <input
+            type="text"
             class="form-control"
-            id="description"
+            id="business"
             required
-            v-model="supplier.description"
-            name="description"
-        />
-      </div>
-      <div class="form-group">
-        <label for="email">Correo</label>
+            v-model="supplier.business"
+            name="business"
+            placeholder="Razon social">
+
+        <label for="name" class="form-label">Dirección</label>
         <input
-            class="form-control"
-            id="email"
-            required
-            v-model="supplier.email"
-            name="email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="phone">Telefono</label>
-        <input
-            class="form-control"
-            id="phone"
-            required
-            v-model="supplier.phone"
-            name="phone"
-        />
-      </div>
-      <div class="form-group">
-        <label for="direction">Direccion</label>
-        <input
+            type="text"
             class="form-control"
             id="direction"
             required
             v-model="supplier.direction"
             name="direction"
-        />
+            placeholder="Dirección">
+        <br/>
+        <div class="row">
+          <button @click="save" class="btn btn-success">Guardar</button>
+        </div>
+
       </div>
-      <br/>
-      <button @click="save" class="btn btn-success">Guardar</button>
-    </div>
-    <div v-else>
-      <div class="alert alert-success" role="alert">
-        {{ message }}
+      <div v-else>
+        <div class="alert alert-success" role="alert">
+          {{ message }}
+        </div>
+        <button class="btn btn-success" @click="newSupplier">Nuevo</button>
       </div>
-      <button class="btn btn-success" @click="newSupplier">Nuevo</button>
     </div>
+    <div class="col"></div>
   </div>
 </template>
 
@@ -79,10 +60,8 @@
       return {
         supplier: {
           name: "",
-          phone: "",
-          email: "",
+          business: "",
           direction: "",
-          description: "",
           published: false
         },
         message: "Proveedor guardado exitosamente",
@@ -93,14 +72,11 @@
       save() {
         let data = {
           name: this.supplier.name,
-          phone: this.supplier.phone,
-          email: this.supplier.email,
+          business: this.supplier.business,
           direction: this.supplier.direction,
-          description: this.supplier.description,
         };
         SupplierService.create(data)
             .then(response => {
-              console.log(response.data);
               if(response.data.id == null){
                 this.message = "El proveedor "+ response.data.name +" ya existe en la Base de Datos";
               } else{

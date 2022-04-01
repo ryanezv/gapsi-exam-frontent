@@ -10,11 +10,6 @@ const routes = [{
     component: () => import("./components/Suppliers/index.vue")
 },
 {
-    path: "/suppliers/:id",
-    name: "suppliers-details",
-    component: () => import("./components/Suppliers/details")
-},
-{
     path: "/suppliers/add",
     name: "suppliers-add",
     component: () => import("./components/Suppliers/add")

@@ -1,5 +1,9 @@
 # exam-fronted
 
+#### Clonar el repositorio de Github
+```
+git clone https://github.com/ryanezv/gapsi-exam-frontent.git
+```
 ## Inicio
 ```
 npm install
@@ -14,7 +18,7 @@ npm run serve
 ```
 npm run build
 ```
-### Expose
+### Expuesto sobre el puerto 8080
 ```
 http://localhost:8080
 ```

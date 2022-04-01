@@ -1,18 +1,17 @@
 <template>
-  <main>
-    <div class="content">
-      <img src="@/assets/logo-gapsi.png" alt="Logo Gapise" />
+  <div class="row justify-content-md-center">
+    <div class="col align-items-center">
+      <img src="@/assets/user-icon.svg" class="rounded mx-auto d-block user" alt="Candidato"/>
+      <h1 class="text-center">{{ label }} - {{ name }}</h1>
+      <div class="d-grid gap-2">
+        <router-link to="/suppliers" class="btn btn-primary">Continuar</router-link>
+      </div>
+
     </div>
-    <div class="user">
-      <img src="@/assets/user-icon.svg" alt="Candidato"/>
-      <h1>{{ label }} - {{ name }}</h1>
+    <div class="col">
+      <img class="gapsi-logo" src="@/assets/logo-gapsi.png" alt="Logo Gapise" />
     </div>
-    <div>
-      <button class="outline-primary">
-        <router-link to="/suppliers" class="nav-link">Continuar</router-link>
-      </button>
-    </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -41,6 +40,13 @@ export default {
 </script>
 
 <style scope>
+.user {
+  width: 30% !important;
+}
+.gapsi-logo{
+  width: 115% !important;
+}
+/*
   .content {
     display: flex;
     justify-content: center;
@@ -65,5 +71,5 @@ export default {
   }
   .user > img {
     width: 100px;
-  }
+  }*/
 </style>

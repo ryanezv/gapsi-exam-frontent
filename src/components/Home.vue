@@ -1,6 +1,5 @@
 <template>
   <Layout>
-
     <template #header>
       <Header></Header>
     </template>
@@ -11,13 +10,9 @@
       </div>
     </template>
 
-    <!--template #suppliers>
-      <Supplier></Supplier>
-    </template-->
     <template #footer>
       <Footer></Footer>
     </template>
-
 
   </Layout>
 

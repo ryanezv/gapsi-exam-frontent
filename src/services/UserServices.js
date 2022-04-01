@@ -1,11 +1,8 @@
-import axios from 'axios';
-
-const BASE_URL_SERVICES = "http://localhost:8081/user";
-//axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+import http from "@/http-common";;
 
 class UserServices{
     get(){
-        return axios.get(BASE_URL_SERVICES)
+        return http.get("/user")
     }
 }
 export default new UserServices();

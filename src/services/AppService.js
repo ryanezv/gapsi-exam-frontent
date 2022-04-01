@@ -1,9 +1,8 @@
-import axios from 'axios';
+import http from "@/http-common";
 
-const BASE_URL_SERVICES = "http://localhost:8081/app";
 class AppService{
     getVersionApp(){
-        return axios.get(BASE_URL_SERVICES + "/version");
+        return http.get("/app/version")
     }
 }
 export default new AppService();

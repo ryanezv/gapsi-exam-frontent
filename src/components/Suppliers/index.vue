@@ -4,31 +4,25 @@
       <button class="btn btn-link">
         <router-link to="/" class="nav-link">Regresar</router-link>
       </button>
-      <button class="btn btn-outline-primary">
-        <router-link to="/suppliers/add">Nuevo proveedor</router-link>
-      </button>
+      <router-link class="btn btn-outline-primary" to="/suppliers/add">Nuevo proveedor</router-link>
     </div>
     <h1 class = "title text-center"> Lista de proveedores Gapsi</h1>
     <table class = "table table-striped">
       <thead>
       <tr>
         <th>Id</th>
-        <th>Name</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Direction</th>
-        <th>Description</th>
-        <th>Actions</th>
+        <th>Nombre</th>
+        <th>Razón Social</th>
+        <th>Dirección</th>
+        <th>Acciones</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="supplier in suppliers">
         <td> {{supplier.id }}</td>
         <td> {{supplier.name }}</td>
-        <td> {{supplier.phone}}</td>
-        <td> {{supplier.email}}</td>
+        <td> {{supplier.business}}</td>
         <td> {{supplier.direction}}</td>
-        <td> {{supplier.description}}</td>
         <td>
           <img src="@/assets/trash-icon.svg" alt="borrar" @click="remove(supplier.id)"/>
         </td>
@@ -50,16 +44,21 @@ export default {
   },
   methods: {
     get(){
-      SupplierService.getAll().then((response) => {
-        this.suppliers = response.data._embedded.supplier;
-      });
+      SupplierService.getAll()
+          .then((response) => {
+            this.suppliers = response.data._embedded.supplier;
+          }).catch(e => {
+            console.log(e);
+          });;
     },
     remove(id){
       console.log("Delete supplier: "+ id);
-      SupplierService.delete(id).then(response => {
-        this.$router.go();
-      })
-
+      SupplierService.delete(id)
+          .then(response => {
+            this.get();
+          }).catch(e => {
+            console.log(e);
+          });
     }
   },
   created() {

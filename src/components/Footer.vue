@@ -1,5 +1,5 @@
 <template>
-<h3> {{ version }}</h3>
+<p class="alert alert-secondary"> {{ version }}</p>
 </template>
 
 <script>
