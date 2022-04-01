@@ -1,24 +1,20 @@
 # exam-fronted
 
-## Project setup
+## Inicio
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Despliegue del proyecto
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### (opcional) Compilar para produccion
 ```
 npm run build
 ```
-
-### Lints and fixes files
+### Expose
 ```
-npm run lint
+http://localhost:8080
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

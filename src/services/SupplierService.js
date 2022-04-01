@@ -8,7 +8,7 @@ class SupplierService{
         return http.get(`/suppliers/${id}`);
     }
     create(data) {
-        return http.post("/suppliers", data);
+        return http.post("/supplier", data);
     }
     delete(id) {
         return http.delete(`/suppliers/${id}`);

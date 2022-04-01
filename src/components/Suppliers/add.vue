@@ -63,7 +63,7 @@
     </div>
     <div v-else>
       <div class="alert alert-success" role="alert">
-        Guardado exitosamente
+        {{ message }}
       </div>
       <button class="btn btn-success" @click="newSupplier">Nuevo</button>
     </div>
@@ -85,6 +85,7 @@
           description: "",
           published: false
         },
+        message: "Proveedor guardado exitosamente",
         submitted: false
       };
     },
@@ -99,8 +100,12 @@
         };
         SupplierService.create(data)
             .then(response => {
-              this.supplier.id = response.data.id;
               console.log(response.data);
+              if(response.data.id == null){
+                this.message = "El proveedor "+ response.data.name +" ya existe en la Base de Datos";
+              } else{
+                this.message = "Proveedor guardado exitosamente";
+              }
               this.submitted = true;
             }).catch(e => {
               console.log(e);
