@@ -6,15 +6,19 @@
     </template>
 
     <template #content>
-      <Content
-        :label = "Bienvenido"
-        :name = "Richi"
-      />
+      <div class="">
+        <router-view />
+      </div>
     </template>
 
+    <!--template #suppliers>
+      <Supplier></Supplier>
+    </template-->
     <template #footer>
       <Footer></Footer>
     </template>
+
+
   </Layout>
 
 </template>
@@ -24,6 +28,7 @@ import Layout from "@/components/Layout.vue";
 import Header from "@/components/Header.vue";
 import Content from "@/components/Content.vue";
 import Footer from "@/components/Footer.vue";
+import Supplier from "@/components/Suppliers/index.vue";
 
 export default {
   components: {
@@ -31,6 +36,7 @@ export default {
     Layout,
     Content,
     Footer,
+    Supplier,
   },
   data() {
     return {

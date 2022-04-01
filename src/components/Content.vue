@@ -6,27 +6,38 @@
     <div class="user">
       <img src="@/assets/user-icon.svg" alt="Candidato"/>
       <h1>{{ label }} - {{ name }}</h1>
-      </div>
+    </div>
+    <div>
+      <button class="outline-primary">
+        <router-link to="/suppliers" class="nav-link">Continuar</router-link>
+      </button>
+    </div>
   </main>
 </template>
 
 <script>
+
+import UserService from '../services/UserServices';
+
 export default {
-  props:{
-    label: {
-      type: String
-    },
-    name: {
-      type: String
-    }
-  },
   data() {
     return {
       label: "Bienvenid@",
-      name: "Ricado"
+      name: ""
     }
+  },
+  methods: {
+    get(){
+      UserService.get().then((response) => {
+        this.name = response.data.name;
+      });
+    }
+  },
+  created() {
+    this.get();
   }
 }
+
 </script>
 
 <style scope>

@@ -5,6 +5,9 @@
   <div class="content">
     <slot name="content"></slot>
   </div>
+  <!--div class="suppliers">
+    <slot name="suppliers"></slot>
+  </div-->
   <div class="footer">
     <slot name="footer"></slot>
   </div>

@@ -1,11 +1,17 @@
-import axios from 'axios';
-
-const BASE_URL_SERVICES = "http://localhost:8081/api/supplier";
+import http from "@/http-common";
 
 class SupplierService{
     getAll(){
-        return axios.get(BASE_URL_SERVICES);
+        return http.get("/suppliers")
+    }
+    get(id) {
+        return http.get(`/suppliers/${id}`);
+    }
+    create(data) {
+        return http.post("/suppliers", data);
+    }
+    delete(id) {
+        return http.delete(`/suppliers/${id}`);
     }
 }
-
 export default  new SupplierService();
